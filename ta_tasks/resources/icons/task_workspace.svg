@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="8" fill="#202326"/>
+  <rect x="4" y="4" width="56" height="6" rx="1" fill="#E3B54C"/>
+  <!-- stacked QGIS workspaces -->
+  <rect x="11" y="17" width="35" height="27" rx="3" fill="#292D30"
+        stroke="#5D6268" stroke-width="2"/>
+  <rect x="17" y="23" width="36" height="28" rx="3" fill="#202326"
+        stroke="#F2F2F0" stroke-width="2"/>
+  <line x1="23" y1="30" x2="45" y2="30" stroke="#5D6268" stroke-width="2"
+        stroke-linecap="round"/>
+  <line x1="23" y1="36" x2="37" y2="36" stroke="#5D6268" stroke-width="2"
+        stroke-linecap="round"/>
+  <!-- completed task check -->
+  <circle cx="44" cy="44" r="10" fill="#E3B54C"/>
+  <path d="M39 44l3.2 3.2L49 40" fill="none" stroke="#202326" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

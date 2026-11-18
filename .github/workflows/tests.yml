@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run dependency-free tests
+        run: PYTHONPATH=. python -m unittest discover -s ta_tasks/tests -v
+      - name: Build plugin ZIP
+        run: python scripts/build_plugin.py
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ta-tasks-workspace
+          path: dist/*.zip
