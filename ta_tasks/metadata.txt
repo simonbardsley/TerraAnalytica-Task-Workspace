@@ -3,7 +3,7 @@ name=TA Task Workspace
 qgisMinimumVersion=3.44.4
 qgisMaximumVersion=4.2.99
 description=Task-centred QGIS workspace manager with named tasks, explicit capture profiles, local history, semantic layer roles and privacy-controlled ToolSearch learning.
-version=0.8.3
+version=0.8.4
 author=TerraAnalytica (NZSpatial Limited)
 email=help@nzspatial.com
 about=TA Task Workspace divides a saved QGIS project into named pieces of work. Each task can retain editable notes, semantic inputs and outputs, dependencies, assigned tools and one or more workspace profiles. Capture explicitly stores selected QGIS panels, toolbars and participating TerraAnalytica context; restore reactivates the nearest saved profile. Local Git history and a hash-chained audit log support recovery and verification when Git is available. Optional ToolSearch learning stores only stable tool identifiers, aggregate counts and timestamps; it never records parameters, layer names, paths or outputs. This experimental beta is local-first and makes no cloud connection.
@@ -18,7 +18,8 @@ hasProcessingProvider=False
 server=False
 license=GPL-2.0-only
 tags=workspace,tasks,workflow,project management,context,productivity,terraanalytica,qgis
-changelog=0.8.3 - Corrected author metadata for QGIS repository upload validation
+changelog=0.8.4 - Resolved workspace-data security false positives, documented the reviewed Git call, and corrected Qt6 enum warnings
+    0.8.3 - Corrected author metadata for QGIS repository upload validation
     0.8.2 - Updated product links and naming, smoke-tested QGIS 3.44.4 and 4.2.3, and added package validation and release checks
     0.8.1 - Added GPL-2.0 licensing, bundled help and release documentation
     0.8.0 - Live privacy-minimal ToolSearch usage integration plus assigned, recent and learned tool management

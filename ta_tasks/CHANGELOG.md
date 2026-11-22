@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.4 — repository security and Qt6 checks
+
+- Changed workspace snapshot deserialisation and serialisation to avoid Bandit
+  mistaking the `shell` layout-data field for a subprocess option. The persisted
+  schema and existing project compatibility are preserved.
+- Added a targeted B603 review annotation to the Git subprocess call. It retains
+  separate arguments, shell=False, a timeout and disabled repository hooks.
+- Replaced four legacy Qt enum fallbacks with scoped enums supported by the
+  declared QGIS 3.44.4 and 4.2.x targets.
+
 ## 0.8.3 — QGIS upload metadata correction
 
 - Removed the slash from the author field to satisfy QGIS repository validation.

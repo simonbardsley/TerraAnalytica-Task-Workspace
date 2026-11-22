@@ -2,7 +2,7 @@
 
 ## Current candidate
 
-Version 0.8.3 targets QGIS 3.44.4–4.2.x and remains experimental.
+Version 0.8.4 targets QGIS 3.44.4–4.2.x and remains experimental.
 See RELEASE_VALIDATION.md for recorded automated and runtime results.
 Record date, operating system, QGIS/Python/Qt versions, archive SHA-256 and
 pass/fail evidence for each check. An unchecked item has no recorded result.
@@ -11,7 +11,7 @@ pass/fail evidence for each check. An unchecked item has no recorded result.
 
 - [ ] Run `PYTHONPATH=. python3 -m unittest discover -s ta_tasks/tests -v`.
 - [ ] Build with `python3 scripts/build_plugin.py`.
-- [ ] Run `python3 scripts/validate_package.py dist/ta_tasks-0.8.3.zip`.
+- [ ] Run `python3 scripts/validate_package.py dist/ta_tasks-0.8.4.zip`.
 - [ ] Review source and archive for secrets and private project data.
 
 ## QGIS clean-profile checks

@@ -1,6 +1,23 @@
-# 0.8.2 beta validation
+# Beta validation
 
 Recorded 22 November 2026 on macOS.
+
+## 0.8.4 security and Qt6 correction
+
+The 0.8.3 repository scan reported three Bandit findings and four Qt6 enum
+warnings. Secrets detection passed. Version 0.8.4 removes ambiguous `shell`
+keyword arguments from layout data serialisation, preserves the saved schema,
+and replaces four legacy enum fallbacks with scoped enums.
+
+Bandit 1.8.6 under Python 3.13 reports zero issues and no analysis errors after
+two line-specific review annotations for the required subprocess import and
+local Git execution. Detect-secrets 1.5.0 reports zero findings in shipped files.
+Tests, including synthetic secret fixtures, are excluded from the release ZIP
+and its secrets scan. Security scanners now run in repository CI.
+
+The QGIS repository must rescan the new version before its status is known.
+
+## 0.8.2 runtime baseline
 
 ## Automated coverage
 

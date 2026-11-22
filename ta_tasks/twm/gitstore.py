@@ -19,7 +19,8 @@ import json
 import os
 import re
 import shutil
-import subprocess
+# Reviewed local Git runner import. See _run and SECURITY.md.
+import subprocess  # nosec B404
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -91,9 +92,10 @@ class GitProjectStore:
                "-c", "user.name=TA Tasks", "-c", "user.email=ta-tasks@localhost", *args]
         env = {**os.environ, "GIT_TERMINAL_PROMPT": "0", "GIT_OPTIONAL_LOCKS": "0"}
         try:
-            # Justified (S603): argv list, shell=False, git path resolved via shutil.which, hooks disabled,
-            # no user-controlled value reaches an option position (commit ids are regex-validated).
-            proc = subprocess.run(  # noqa: S603
+            # Reviewed B603: the executable is resolved by shutil.which or explicitly
+            # supplied by the caller. Arguments are separate, shell=False, hooks are
+            # disabled, and commit IDs are validated before reaching this call.
+            proc = subprocess.run(  # nosec B603
                 cmd, cwd=self.dir, input=input_text, capture_output=True, text=True,
                 encoding="utf-8", timeout=_GIT_TIMEOUT, env=env, shell=False,
             )

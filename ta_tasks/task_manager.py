@@ -39,8 +39,7 @@ def _qt_enum(group: str, name: str):
 
 LEFT_DOCK = _qt_enum("DockWidgetArea", "LeftDockWidgetArea")
 RIGHT_DOCK = _qt_enum("DockWidgetArea", "RightDockWidgetArea")
-SINGLE_SELECTION = (QAbstractItemView.SelectionMode.SingleSelection
-                    if hasattr(QAbstractItemView, "SelectionMode") else QAbstractItemView.SingleSelection)
+SINGLE_SELECTION = QAbstractItemView.SelectionMode.SingleSelection
 USER_ROLE = _qt_enum("ItemDataRole", "UserRole")
 ITEM_IS_USER_CHECKABLE = _qt_enum("ItemFlag", "ItemIsUserCheckable")
 CHECKED = _qt_enum("CheckState", "Checked")

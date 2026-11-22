@@ -65,6 +65,21 @@ class TaskManagerModelTests(unittest.TestCase):
         with self.assertRaises(RegistryError):
             self.registry.update_settings(usage_learning="no")
 
+    def test_workspace_shell_data_round_trip_is_independent(self):
+        raw = {
+            "id": "profile", "task_id": self.first.id,
+            "shell": {"docks": [{"name": "Layers", "visible": True}]},
+            "future_field": {"enabled": True},
+        }
+        profile = WorkspaceProfile.from_dict(raw)
+        self.assertEqual(profile.to_dict()["shell"], raw["shell"])
+        self.assertEqual(profile.to_dict()["future_field"], raw["future_field"])
+        raw["shell"]["docks"][0]["visible"] = False
+        self.assertTrue(profile.shell["docks"][0]["visible"])
+        saved = profile.to_dict()
+        saved["shell"]["docks"].clear()
+        self.assertEqual(len(profile.shell["docks"]), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

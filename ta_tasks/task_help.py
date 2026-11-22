@@ -10,13 +10,11 @@ from .ta_style import stylesheet
 
 
 def _close_button():
-    scoped = getattr(QDialogButtonBox, "StandardButton", None)
-    return getattr(scoped, "Close") if scoped is not None else QDialogButtonBox.Close
+    return QDialogButtonBox.StandardButton.Close
 
 
 def _window_flag():
-    scoped = getattr(Qt, "WindowType", None)
-    return getattr(scoped, "Window") if scoped is not None else Qt.Window
+    return Qt.WindowType.Window
 
 
 class TaskWorkspaceHelpDialog(QDialog):

@@ -1,6 +1,6 @@
 # Security and cloud-readiness notes
 
-TA Task Workspace v0.8.2 is a local QGIS plugin. Selecting `cloud` or `hybrid`
+TA Task Workspace v0.8.4 is a local QGIS plugin. Selecting `cloud` or `hybrid`
 processing is intentionally feature-gated; this build makes no network calls and
 configures no Git remotes.
 
@@ -14,6 +14,16 @@ configures no Git remotes.
 - Usage learning is project-local, independently clearable, and can be disabled.
 - Corrupt project state falls back to a last-known-good copy; newer schemas open read-only.
 - Participant failures and missing plugins are isolated during workspace restoration.
+
+## Scanner review
+
+The 0.8.3 QGIS report flagged B603 at the Git subprocess call and B604 at two
+workspace layout-data `shell` keyword arguments. Secrets detection passed.
+Version 0.8.4 represents the layout snapshot as data without a `shell` call
+keyword and preserves the persisted schema. The single `nosec B603` annotation
+documents a reviewed local Git operation using separate arguments, shell=False,
+disabled hooks and a timeout. A B404 annotation documents the required subprocess
+import for the same operation. Each annotation applies to its specific line.
 
 ## SOC 2 readiness boundary
 

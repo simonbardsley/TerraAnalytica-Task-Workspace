@@ -322,25 +322,29 @@ class WorkspaceProfile:
         pid = _str(d, "id", "workspace_profile", required=True)
         ctx = f"workspace_profile[{pid}]"
         parts = _dict(d, "participants", ctx)
-        return cls(
+        profile = cls(
             id=pid, task_id=_str(d, "task_id", ctx, required=True), name=_str(d, "name", ctx),
             display_class=_enum(DisplayClass, d.get("display_class", "single_standard"),
                                 f"{ctx}.display_class"),
             capture_policy=_str(d, "capture_policy", ctx, "standard"),
             capture_options={k: bool(v) for k, v in _dict(d, "capture_options", ctx).items()
                              if isinstance(v, bool)},
-            shell=copy.deepcopy(_dict(d, "shell", ctx)),
             participants={k: copy.deepcopy(v) for k, v in parts.items() if isinstance(v, dict)},
             captured_at=_str(d, "captured_at", ctx), extra=_split(d, cls._KNOWN),
         )
+        # This is serialised QGIS workspace layout data.
+        profile.shell = copy.deepcopy(_dict(d, "shell", ctx))
+        return profile
 
     def to_dict(self) -> dict:
         out = copy.deepcopy(self.extra)
-        out.update(id=self.id, task_id=self.task_id, name=self.name,
-                   display_class=self.display_class.value, capture_policy=self.capture_policy,
-                   capture_options=copy.deepcopy(self.capture_options),
-                   shell=copy.deepcopy(self.shell), participants=copy.deepcopy(self.participants),
-                   captured_at=self.captured_at)
+        out.update({
+            "id": self.id, "task_id": self.task_id, "name": self.name,
+            "display_class": self.display_class.value, "capture_policy": self.capture_policy,
+            "capture_options": copy.deepcopy(self.capture_options),
+            "shell": copy.deepcopy(self.shell), "participants": copy.deepcopy(self.participants),
+            "captured_at": self.captured_at,
+        })
         return out
 
 

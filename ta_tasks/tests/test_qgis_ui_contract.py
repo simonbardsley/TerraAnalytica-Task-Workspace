@@ -16,7 +16,7 @@ class QgisUiContractTests(unittest.TestCase):
     def test_metadata_matches_manager_release(self):
         parser = configparser.ConfigParser(interpolation=None)
         parser.read(ROOT / "metadata.txt", encoding="utf-8")
-        self.assertEqual(parser["general"]["version"], "0.8.3")
+        self.assertEqual(parser["general"]["version"], "0.8.4")
         self.assertNotIn("/", parser["general"]["author"])
         self.assertNotIn("\\", parser["general"]["author"])
         self.assertEqual(parser["general"]["name"], "TA Task Workspace")

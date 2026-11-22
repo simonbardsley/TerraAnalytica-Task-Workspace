@@ -25,8 +25,7 @@ from .task_manager import TaskManagerDock
 
 
 def _right_dock_area():
-    scoped = getattr(Qt, "DockWidgetArea", None)
-    return getattr(scoped, "RightDockWidgetArea") if scoped is not None else Qt.RightDockWidgetArea
+    return Qt.DockWidgetArea.RightDockWidgetArea
 
 log = get_logger("plugin")
 
