@@ -43,7 +43,7 @@ can be run outside QGIS:
 ```sh
 PYTHONPATH=. python3 -m unittest discover -s ta_tasks/tests -v
 python3 scripts/build_plugin.py
-python3 scripts/validate_package.py dist/ta_tasks-0.8.2.zip
+python3 scripts/validate_package.py dist/ta_tasks-0.8.3.zip
 ```
 
 This beta targets QGIS 3.44.4–4.2.x. Runtime smoke tests passed on macOS with
@@ -51,7 +51,7 @@ QGIS 3.44.4 (Qt 5) and 4.2.3 (Qt 6). QGIS-hosted UI and restore tests still requ
 supported QGIS installations. Record their results using the bundled
 [release checklist](ta_tasks/RELEASE_CHECKLIST.md).
 
-Run `scripts/qgis_smoke.py dist/ta_tasks-0.8.2.zip` with the Python interpreter
+Run `scripts/qgis_smoke.py dist/ta_tasks-0.8.3.zip` with the Python interpreter
 and library environment supplied by your QGIS installation. The smoke test
 extracts the ZIP into a temporary directory and exercises real QGIS/Qt APIs in
 a disposable Qt host. See [validation results](ta_tasks/RELEASE_VALIDATION.md)

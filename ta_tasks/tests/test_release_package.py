@@ -23,7 +23,7 @@ class ReleasePackageTests(unittest.TestCase):
         for name in ("__init__.py", "LICENSE", "HELP.md", "SECURITY.md", "RELEASE_CHECKLIST.md"):
             (self.source / name).write_text("Release fixture", encoding="utf-8")
         (self.source / "metadata.txt").write_text(
-            "[general]\nversion=0.8.2\nexperimental=True\n", encoding="utf-8"
+            "[general]\nversion=0.8.2\nauthor=TerraAnalytica\nexperimental=True\n", encoding="utf-8"
         )
         self.archive = self.root / "ta_tasks-0.8.2.zip"
 
@@ -60,6 +60,14 @@ class ReleasePackageTests(unittest.TestCase):
         (self.source / "private.pem").write_text("Fixture key", encoding="utf-8")
         self.build()
         with self.assertRaises(ValueError):
+            self.validate()
+
+    def test_author_slashes_are_rejected(self):
+        metadata = self.source / "metadata.txt"
+        metadata.write_text(metadata.read_text().replace("author=TerraAnalytica",
+                            "author=TerraAnalytica / NZSpatial"), encoding="utf-8")
+        self.build()
+        with self.assertRaisesRegex(ValueError, "Author"):
             self.validate()
 
 

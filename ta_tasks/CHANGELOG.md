@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.3 — QGIS upload metadata correction
+
+- Removed the slash from the author field to satisfy QGIS repository validation.
+- Added author-field checks to package validation and regression tests.
+
 ## 0.8.2 — experimental release candidate
 
 - Updated the homepage to the published Task Workspace product page.

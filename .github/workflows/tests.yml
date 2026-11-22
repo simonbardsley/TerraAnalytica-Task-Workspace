@@ -20,7 +20,7 @@ jobs:
       - name: Build plugin ZIP
         run: python scripts/build_plugin.py
       - name: Validate plugin ZIP and checksum
-        run: python scripts/validate_package.py dist/ta_tasks-0.8.2.zip
+        run: python scripts/validate_package.py dist/ta_tasks-0.8.3.zip
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:

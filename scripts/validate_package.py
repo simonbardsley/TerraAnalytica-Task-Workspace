@@ -44,6 +44,9 @@ def validate_package(path: Path) -> str:
                 raise ValueError(f"Missing required file: {name}")
         metadata = configparser.ConfigParser(interpolation=None)
         metadata.read_string(archive.read("ta_tasks/metadata.txt").decode("utf-8"))
+        author = metadata["general"].get("author", "")
+        if not author.strip() or "/" in author or "\\" in author:
+            raise ValueError("Author must be non-empty and cannot contain slashes")
         if metadata["general"]["experimental"] != "True":
             raise ValueError("Beta must remain experimental")
         version = metadata["general"]["version"]
