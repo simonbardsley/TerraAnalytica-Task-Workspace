@@ -1,6 +1,6 @@
 """QGIS-backed layer catalogue (M7). Converts live layers to ``LayerInfo`` (hash only, never the raw source).
 
-UNTESTED INSIDE QGIS - see docs/MANUAL_QGIS_CHECKLIST.md.
+Interactive layer-role checks are recorded using RELEASE_CHECKLIST.md.
 """
 from __future__ import annotations
 

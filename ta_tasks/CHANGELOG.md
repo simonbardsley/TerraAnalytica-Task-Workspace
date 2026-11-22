@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.2 — experimental release candidate
+
+- Updated the homepage to the published Task Workspace product page.
+- Standardised Plugin Manager, toolbar and message naming to TA Task Workspace.
+- Scoped advertised compatibility to QGIS 3.44.4–4.2.x pending broader testing.
+- Smoke-tested the packaged plugin with QGIS 3.44.4 (Qt 5) and 4.2.3 (Qt 6).
+- Added archive validation, checksum generation and a QGIS release checklist.
+- Updated security documentation for the current local-first beta.
+
 ## 0.8.1 — beta release preparation
 
 - Adopted the same GNU GPL version 2 licence as TerraAnalytica Work Log.

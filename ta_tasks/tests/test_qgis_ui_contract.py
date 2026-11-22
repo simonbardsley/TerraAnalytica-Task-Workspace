@@ -16,7 +16,12 @@ class QgisUiContractTests(unittest.TestCase):
     def test_metadata_matches_manager_release(self):
         parser = configparser.ConfigParser(interpolation=None)
         parser.read(ROOT / "metadata.txt", encoding="utf-8")
-        self.assertEqual(parser["general"]["version"], "0.8.1")
+        self.assertEqual(parser["general"]["version"], "0.8.2")
+        self.assertEqual(parser["general"]["name"], "TA Task Workspace")
+        self.assertEqual(parser["general"]["qgisMinimumVersion"], "3.44.4")
+        self.assertEqual(parser["general"]["qgisMaximumVersion"], "4.2.99")
+        self.assertEqual(parser["general"]["homepage"],
+                         "https://terraanalytica.co.nz/qgis-plugins/task-workspace")
         self.assertEqual(parser["general"]["icon"], "resources/icons/task_workspace.svg")
         self.assertEqual(parser["general"]["license"], "GPL-2.0-only")
 

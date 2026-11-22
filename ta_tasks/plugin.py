@@ -63,7 +63,7 @@ class TATasksPlugin:
 
     # -- QGIS lifecycle
     def initGui(self):  # noqa: N802
-        self.toolbar = self.iface.addToolBar("TA Tasks Workspace")
+        self.toolbar = self.iface.addToolBar("TA Task Workspace")
         self.toolbar.setObjectName("TATasksToolbar")
         self.toolbar.setToolTip("Organise work into tasks and restore each task's QGIS workspace")
         self.toolbar.addWidget(self._label("TA Tasks"))
@@ -145,7 +145,7 @@ class TATasksPlugin:
         self._actions.append(act)
 
     def _msg(self, text, level=MessageLevel.Info):
-        self.iface.messageBar().pushMessage("TA Tasks Workspace", text, level=level, duration=6)
+        self.iface.messageBar().pushMessage("TA Task Workspace", text, level=level, duration=6)
 
     def _connect_project_signal(self, name):
         signal = getattr(QgsProject.instance(), name, None)

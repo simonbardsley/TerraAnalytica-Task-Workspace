@@ -10,7 +10,7 @@ Designer, TA Passage or AI Central remain responsible for executing algorithms.
 ## Quick start
 
 1. Save the QGIS project.
-2. Install and enable **TA Tasks Workspace**.
+2. Install and enable **TA Task Workspace**.
 3. Create a task and enter its purpose, status, notes, inputs and outputs.
 4. On **Workspace**, select exactly which panels, toolbars and participating
    TerraAnalytica context to capture.
@@ -32,7 +32,7 @@ coordinates, attributes or outputs. This beta makes no cloud connection.
 ## Install a beta ZIP
 
 In QGIS, open **Plugins → Manage and Install Plugins → Install from ZIP**, select
-the release archive and enable **TA Tasks Workspace**. Experimental plugins must
+the release archive and enable **TA Task Workspace**. Experimental plugins must
 be enabled in Plugin Manager settings for repository-distributed beta versions.
 
 ## Development
@@ -43,9 +43,19 @@ can be run outside QGIS:
 ```sh
 PYTHONPATH=. python3 -m unittest discover -s ta_tasks/tests -v
 python3 scripts/build_plugin.py
+python3 scripts/validate_package.py dist/ta_tasks-0.8.2.zip
 ```
 
-QGIS-hosted UI and restore tests still require supported QGIS installations.
+This beta targets QGIS 3.44.4–4.2.x. Runtime smoke tests passed on macOS with
+QGIS 3.44.4 (Qt 5) and 4.2.3 (Qt 6). QGIS-hosted UI and restore tests still require
+supported QGIS installations. Record their results using the bundled
+[release checklist](ta_tasks/RELEASE_CHECKLIST.md).
+
+Run `scripts/qgis_smoke.py dist/ta_tasks-0.8.2.zip` with the Python interpreter
+and library environment supplied by your QGIS installation. The smoke test
+extracts the ZIP into a temporary directory and exercises real QGIS/Qt APIs in
+a disposable Qt host. See [validation results](ta_tasks/RELEASE_VALIDATION.md)
+for its scope and remaining interactive checks.
 
 ## Licence
 

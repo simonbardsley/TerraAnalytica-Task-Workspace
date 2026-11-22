@@ -32,7 +32,8 @@ Settings.
 
 ## Compatibility and beta status
 
-- QGIS 3.22 through QGIS 4.x are declared by the package.
+- Version 0.8.2 targets QGIS 3.44.4–4.2.x. Runtime smoke tests passed on macOS
+  with QGIS 3.44.4 and 4.2.3. Other versions require separate validation.
 - Qt imports use the QGIS compatibility layer for Qt 5 and Qt 6.
 - This version is an experimental beta and should be tested on copies or backed-up
   projects before production use.

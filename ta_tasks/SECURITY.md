@@ -1,6 +1,6 @@
 # Security and cloud-readiness notes
 
-TA Tasks v0.5.0 remains a local QGIS plugin. Selecting `cloud` or `hybrid`
+TA Task Workspace v0.8.2 is a local QGIS plugin. Selecting `cloud` or `hybrid`
 processing is intentionally feature-gated; this build makes no network calls and
 configures no Git remotes.
 

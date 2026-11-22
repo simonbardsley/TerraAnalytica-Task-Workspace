@@ -1,6 +1,7 @@
 """Real Qt/QGIS backend for ShellEngine (M2 spike).
 
-UNTESTED INSIDE QGIS in this build - verify with docs/MANUAL_QGIS_CHECKLIST.md.
+Runtime smoke coverage is recorded in RELEASE_VALIDATION.md. Interactive layout
+checks remain in RELEASE_CHECKLIST.md.
 Known risks (milestones s20): Qt layout state varies across QGIS/Qt versions, and
 "visible" for background tabs in a tabbed dock group is version-dependent. We trust
 QMainWindow.saveState()/restoreState() for tab grouping and only reconcile

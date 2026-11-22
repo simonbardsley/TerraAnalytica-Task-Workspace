@@ -19,8 +19,12 @@ jobs:
         run: PYTHONPATH=. python -m unittest discover -s ta_tasks/tests -v
       - name: Build plugin ZIP
         run: python scripts/build_plugin.py
+      - name: Validate plugin ZIP and checksum
+        run: python scripts/validate_package.py dist/ta_tasks-0.8.2.zip
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:
           name: ta-tasks-workspace
-          path: dist/*.zip
+          path: |
+            dist/*.zip
+            dist/*.sha256
